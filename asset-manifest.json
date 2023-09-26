@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/chibuike07.github.io/state_management_with_redux_toolkit/static/css/main.1ecc8d2b.css",
-    "main.js": "/chibuike07.github.io/state_management_with_redux_toolkit/static/js/main.e55fd622.js",
-    "static/js/787.c1ede8d0.chunk.js": "/chibuike07.github.io/state_management_with_redux_toolkit/static/js/787.c1ede8d0.chunk.js",
-    "index.html": "/chibuike07.github.io/state_management_with_redux_toolkit/index.html",
-    "main.1ecc8d2b.css.map": "/chibuike07.github.io/state_management_with_redux_toolkit/static/css/main.1ecc8d2b.css.map",
-    "main.e55fd622.js.map": "/chibuike07.github.io/state_management_with_redux_toolkit/static/js/main.e55fd622.js.map",
-    "787.c1ede8d0.chunk.js.map": "/chibuike07.github.io/state_management_with_redux_toolkit/static/js/787.c1ede8d0.chunk.js.map"
+    "main.css": "/state_management_with_redux_toolkit/static/css/main.1ecc8d2b.css",
+    "main.js": "/state_management_with_redux_toolkit/static/js/main.e5eeb7f7.js",
+    "static/js/787.c1ede8d0.chunk.js": "/state_management_with_redux_toolkit/static/js/787.c1ede8d0.chunk.js",
+    "index.html": "/state_management_with_redux_toolkit/index.html",
+    "main.1ecc8d2b.css.map": "/state_management_with_redux_toolkit/static/css/main.1ecc8d2b.css.map",
+    "main.e5eeb7f7.js.map": "/state_management_with_redux_toolkit/static/js/main.e5eeb7f7.js.map",
+    "787.c1ede8d0.chunk.js.map": "/state_management_with_redux_toolkit/static/js/787.c1ede8d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1ecc8d2b.css",
-    "static/js/main.e55fd622.js"
+    "static/js/main.e5eeb7f7.js"
   ]
 }
