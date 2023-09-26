@@ -6,8 +6,8 @@ import { findDuplicate } from "../../Util/todoUtil";
 
 const Todo = () => {
   const { items } = useSelector((state) => state.todoReducer);
-  const [canEdit, setCanEdit] = useState(false);
   const [index, setIndex] = useState("");
+  const [canEdit, setCanEdit] = useState(false);
   const [hasChanged, setHasChanged] = useState(false);
   const elementRef = useRef();
   const todoWrapRef = useRef();
