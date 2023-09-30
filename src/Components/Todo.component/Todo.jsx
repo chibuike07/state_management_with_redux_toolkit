@@ -14,11 +14,21 @@ const Todo = () => {
 
   const dispatch = useDispatch();
 
+  /**
+   * The handleEdit function toggles the canEdit state and sets the index state to the provided idx
+   * value.
+   */
   const handleEdit = ({ idx }) => {
     setCanEdit((prev) => !prev);
     setIndex(() => idx);
   };
 
+  /**
+   * The function `saveUpdate` checks for duplicate todos and dispatches an error toast if a duplicate is
+   * found, otherwise it dispatches an edit action for the todo.
+   * @returns either a dispatch of a toastError message for a duplicate detected, or it is returning an
+   * empty string.
+   */
   const saveUpdate = ({ id, todo }) => {
     const resolveDuplicate = findDuplicate({
       data: items,
@@ -40,9 +50,6 @@ const Todo = () => {
       watchDuplicateOnEdit({
         children,
         index,
-        hasChanged,
-        setCanEdit,
-        canEdit,
       });
     }
 
