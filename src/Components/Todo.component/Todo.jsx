@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo, editTodo, toastError } from "../../Store/todoReducer";
 import { Container } from "./TodoStyles";
-import { findDuplicate } from "../../Util/todoUtil";
+import { findDuplicate, watchDuplicateOnEdit } from "../../Util/todoUtil";
 
 const Todo = () => {
   const { items } = useSelector((state) => state.todoReducer);
@@ -25,26 +25,34 @@ const Todo = () => {
       todo,
     });
 
-    if (resolveDuplicate && !hasChanged)
+    if (resolveDuplicate && hasChanged) {
       return dispatch(toastError("Duplicate dectected!"));
+    }
 
     dispatch(toastError(""));
+    setHasChanged(() => false);
     dispatch(editTodo({ todo, id }));
   };
 
   useEffect(() => {
     if (canEdit && elementRef.current !== undefined) {
       const { children } = todoWrapRef.current;
-      const todoLists = [...children];
-      for (let i = 0; i < todoLists.length; ++i) {
-        if (i === index) {
-          todoLists[i].children[0].style.color = "#000";
-          todoLists[i].children[0].firstChild.focus();
-        } else {
-          todoLists[i].children[0].style.color = "var(--primaryColor)";
-        }
-      }
+      watchDuplicateOnEdit({
+        children,
+        index,
+        hasChanged,
+        setCanEdit,
+        canEdit,
+      });
     }
+
+    if (hasChanged && elementRef.current !== undefined) {
+      console.log("hasChanged :>> ", hasChanged);
+      setCanEdit(() => true);
+      const { children } = todoWrapRef.current;
+      watchDuplicateOnEdit({ children, index });
+    }
+
     if (!canEdit && elementRef.current !== undefined) {
       const { children } = todoWrapRef.current;
       children[index].children[0].style.color = "var(--primaryColor)";
@@ -62,7 +70,7 @@ const Todo = () => {
               onBlur={(e) => saveUpdate({ todo: e.target.textContent, id })}
               suppressContentEditableWarning={true}
               onKeyUpCapture={() => {
-                return canEdit && index && setHasChanged(true);
+                return canEdit && index && setHasChanged(() => true);
               }}
             >
               {text}

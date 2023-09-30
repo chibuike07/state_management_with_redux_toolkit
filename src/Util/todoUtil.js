@@ -17,3 +17,15 @@ export const fetchTodoFromDbStorage = ({ dispatch }) => {
 
 export const findDuplicate = ({ data, todo }) =>
   data.length > 0 && data.find(({ text }) => text === todo.toLowerCase());
+
+export const watchDuplicateOnEdit = ({ children, index }) => {
+  const todoLists = [...children];
+  for (let i = 0; i < todoLists.length; ++i) {
+    if (i === index) {
+      todoLists[i].children[0].style.color = "#000";
+      todoLists[i].children[0].firstChild.focus();
+    } else if (i === index) {
+      todoLists[i].children[0].style.color = "#000";
+    }
+  }
+};
