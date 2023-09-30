@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findDuplicate } from "../Util/todoUtil";
-import { useDispatch } from "react-redux";
 const initialState = {
   items: [],
   errors: "",

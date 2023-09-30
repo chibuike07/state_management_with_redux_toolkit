@@ -47,7 +47,6 @@ const Todo = () => {
     }
 
     if (hasChanged && elementRef.current !== undefined) {
-      console.log("hasChanged :>> ", hasChanged);
       setCanEdit(() => true);
       const { children } = todoWrapRef.current;
       watchDuplicateOnEdit({ children, index });
